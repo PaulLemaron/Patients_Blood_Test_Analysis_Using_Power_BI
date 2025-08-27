@@ -188,7 +188,7 @@ Several Data Analysis Expressions (DAX) were created to enable the rich analytic
 
 ## Dataset
 
-The project utilizes a Healthcare Analytics Dashboard dataset containing patient blood test data.
+The project utilizes a Healthcare Analytics dataset attached to the repository containing patient blood test data.
 
 ## Technologies Used
 
