@@ -7,45 +7,45 @@ Patients_Blood_Test_Analysis_Using_Power_BI
 
 ## Project Overview
 
-This Power BI dashboard provides a comprehensive analysis of patient blood test data, offering insights into various health metrics such as Hemoglobin, Glucose, WBC, Platelets, and Cholesterol levels. The goal is to **visualize patient data effectively for quick assessment, identification of risk factors, and trend analysis**, drawing from a healthcare analytics dataset.
+This Power BI dashboard provides a comprehensive analysis of patient blood test data, offering insights into various health metrics such as Hemoglobin, Glucose, WBC, Platelets, and Cholesterol levels. The goal is to visualize patient data effectively for quick assessment, identification of risk factors, and trend analysis, drawing from a healthcare analytics dataset.
 
 ## Key Features & Visualizations
 
 The dashboard is designed with several interactive sections to provide a holistic view of patient health:
 
-*   **Patient Overview:**
-    *   **Card Visuals** for quick stats: Total Patients (e.g., 50 patients), Average Age (e.g., 40.76 years), Gender Distribution (e.g., 50% Male, 50% Female).
-    *   **Bar Chart** showing the number of patients by **Age Groups** (e.g., 20-30, 31-40, 41-50, Above 50).
-*   **Hemoglobin Levels Analysis:**
-    *   **Gauge Chart** displaying average Hemoglobin levels with defined ranges (low, normal, high).
-    *   **Conditional Formatting Table** to highlight patients with Hemoglobin levels outside the normal range (e.g., below 13 for males or below 12 for females).
-    *   **"Hemoglobin Range Count of Patients"** visual categorizing patients into Low (5), Normal (45).
-*   **Glucose Levels Analysis:**
-    *   **Bar Chart** grouping patients by glucose levels (e.g., Normal <100 mg/dL, Prediabetes 100-125 mg/dL, Diabetes >125 mg/dL).
-    *   **"Glucose Range Count of Patients"** visual showing patients categorized by High (21), Normal (18), Low (11).
-    *   **KPI Card** to highlight patients with glucose levels above a certain threshold.
-*   **WBC and Platelet Analysis:**
-    *   **Scatter Plot** for WBC vs. Platelets to identify correlations or outliers.
-    *   **Heat Map** showing WBC count by Age Group and Gender.
-*   **Cholesterol Insights:**
-    *   **Histogram** for distribution of Cholesterol levels.
-    *   **Stacked Column Chart** showing Cholesterol levels by Age Group and Gender.
-*   **Patient Risk Analysis:**
-    *   A dedicated section for **"Patients Risk Analysis"** categorizing patients into High, Moderate, and Low risk based on combined Glucose and Hemoglobin categories.
-*   **Interactive Patient Table:**
-    *   A **Table Visual** displaying patient details (Name, Age, Gender, test values) with **filters** for age range, gender, and specific test abnormalities.
-*   **Abnormal Value Highlight:**
-    *   **Conditional Formatting** is applied to tables to highlight cells with values outside normal ranges for various test parameters.
-*   **Filters and Slicers:**
-    *   Interactive slicers for **Gender, Age Group, Hemoglobin Range, and Glucose Range** are available for dynamic filtering of data.
+   Patient Overview:
+       Card Visuals for quick stats: Total Patients (e.g., 50 patients), Average Age (e.g., 40.76 years), Gender Distribution (e.g., 50% Male, 50% Female).
+       Bar Chart showing the number of patients by Age Groups (e.g., 20-30, 31-40, 41-50, Above 50).
+   Hemoglobin Levels Analysis:
+       Gauge Chart displaying average Hemoglobin levels with defined ranges (low, normal, high).
+       Conditional Formatting Table to highlight patients with Hemoglobin levels outside the normal range (e.g., below 13 for males or below 12 for females).
+       "Hemoglobin Range Count of Patients" visual categorizing patients into Low (5), Normal (45).
+   Glucose Levels Analysis:
+       Bar Chart grouping patients by glucose levels (e.g., Normal <100 mg/dL, Prediabetes 100-125 mg/dL, Diabetes >125 mg/dL).
+       "Glucose Range Count of Patients" visual showing patients categorized by High (21), Normal (18), Low (11).
+       KPI Card to highlight patients with glucose levels above a certain threshold.
+   WBC and Platelet Analysis:
+       Scatter Plot for WBC vs. Platelets to identify correlations or outliers.
+       Heat Map showing WBC count by Age Group and Gender.
+   Cholesterol Insights:
+       Histogram for distribution of Cholesterol levels.
+       Stacked Column Chart showing Cholesterol levels by Age Group and Gender.
+   Patient Risk Analysis:
+       A dedicated section for "Patients Risk Analysis" categorizing patients into High, Moderate, and Low risk based on combined Glucose and Hemoglobin categories.
+   Interactive Patient Table:
+       A Table Visual displaying patient details (Name, Age, Gender, test values) with filters for age range, gender, and specific test abnormalities.
+   Abnormal Value Highlight:
+       Conditional Formatting is applied to tables to highlight cells with values outside normal ranges for various test parameters.
+   Filters and Slicers:
+       Interactive slicers for Gender, Age Group, Hemoglobin Range, and Glucose Range are available for dynamic filtering of data.
 
 ## DAX Formulas Used
 
-Several Data Analysis Expressions (DAX) were created to enable the rich analytical capabilities of this dashboard. These include both **calculated columns** (which add new columns to the table based on row-level calculations) and **measures** (which perform aggregations dynamically based on the report's context).
+Several Data Analysis Expressions (DAX) were created to enable the rich analytical capabilities of this dashboard. These include both calculated columns (which add new columns to the table based on row-level calculations) and measures (which perform aggregations dynamically based on the report's context).
 
 ### Calculated Columns
 
-*   **`Age Group`**
+   `Age Group`
     ```DAX
     Age Group =
     SWITCH(
@@ -57,9 +57,9 @@ Several Data Analysis Expressions (DAX) were created to enable the rich analytic
         "Unknown"
     )
     ```
-    **Purpose:** **Categorizes each patient into specific age groups** based on their `Age` value (e.g., "20-30", "31-40", "41-50", "Above 50"). An "Unknown" category is included for ages outside these ranges or blank.
+    Purpose: Categorizes each patient into specific age groups based on their `Age` value (e.g., "20-30", "31-40", "41-50", "Above 50"). An "Unknown" category is included for ages outside these ranges or blank.
 
-*   **`Hemoglobin Range`**
+   `Hemoglobin Range`
     ```DAX
     Hemoglobin Range =
     SWITCH(
@@ -70,9 +70,9 @@ Several Data Analysis Expressions (DAX) were created to enable the rich analytic
         "Unknown"
     )
     ```
-    **Purpose:** **Categorizes individual patient hemoglobin levels** into "Low" (below 12 g/dL), "Normal" (12-16 g/dL), or "High" (above 16 g/dL).
+    Purpose: Categorizes individual patient hemoglobin levels into "Low" (below 12 g/dL), "Normal" (12-16 g/dL), or "High" (above 16 g/dL).
 
-*   **`Hemoglobin Category by Gender`**
+   `Hemoglobin Category by Gender`
     ```DAX
     Hemoglobin Category by Gender =
     SWITCH(
@@ -87,9 +87,9 @@ Several Data Analysis Expressions (DAX) were created to enable the rich analytic
         "Unclassified"
     )
     ```
-    **Purpose:** **Categorizes individual patient hemoglobin levels based on gender-specific World Health Organization (WHO) guidelines and clinical sources** (e.g., <13.0 g/dL for men and <12.0 g/dL for women for "Low").
+    Purpose: Categorizes individual patient hemoglobin levels based on gender-specific World Health Organization (WHO) guidelines and clinical sources (e.g., <13.0 g/dL for men and <12.0 g/dL for women for "Low").
 
-*   **`Glucose Category`**
+   `Glucose Category`
     ```DAX
     Glucose Category =
     SWITCH(
@@ -112,9 +112,9 @@ Several Data Analysis Expressions (DAX) were created to enable the rich analytic
         "Unknown"
     )
     ```
-    **Purpose:** **Categorizes patient glucose levels based on clinical guidelines**, considering both fasting and postprandial states to assign "Low," "Normal," "Prediabetes," or "Diabetic" categories.
+    Purpose: Categorizes patient glucose levels based on clinical guidelines, considering both fasting and postprandial states to assign "Low," "Normal," "Prediabetes," or "Diabetic" categories.
 
-*   **`Glucose Category (92-118 Range)`**
+   `Glucose Category (92-118 Range)`
     ```DAX
     Glucose Category (92-118 Range) =
     SWITCH(
@@ -125,9 +125,9 @@ Several Data Analysis Expressions (DAX) were created to enable the rich analytic
         "Unclassified"
     )
     ```
-    **Purpose:** Specifically **tailors glucose categorization to a dataset's observed range of 92 to 118 mg/dL**, categorizing values into "Low" (below 92), "Normal" (92-100), or "High" (101-118).
+    Purpose: Specifically tailors glucose categorization to a dataset's observed range of 92 to 118 mg/dL, categorizing values into "Low" (below 92), "Normal" (92-100), or "High" (101-118).
 
-*   **`Patient Risk Category`**
+   `Patient Risk Category`
     ```DAX
     Patient Risk Category =
     SWITCH(
@@ -138,17 +138,17 @@ Several Data Analysis Expressions (DAX) were created to enable the rich analytic
         "Unclassified"
     )
     ```
-    **Purpose:** **Assigns a risk level ("High Risk," "Moderate Risk," "Low Risk") to patients** based on their previously defined `Glucose Category` and `Hemoglobin Category`. Patients with both Glucose and Hemoglobin categorized as "Low" are given the "High Risk" priority.
+    Purpose: Assigns a risk level ("High Risk," "Moderate Risk," "Low Risk") to patients based on their previously defined `Glucose Category` and `Hemoglobin Category`. Patients with both Glucose and Hemoglobin categorized as "Low" are given the "High Risk" priority.
 
 ### Measures
 
-*   **`Avg Hemoglobin`**
+   `Avg Hemoglobin`
     ```DAX
     Avg Hemoglobin = AVERAGE(bloodtest[Hemoglobin (g/dL)])
     ```
-    **Purpose:** Calculates the **average hemoglobin level** from the `Hemoglobin (g/dL)` column, aggregating values dynamically based on the visual's context.
+    Purpose: Calculates the average hemoglobin level from the `Hemoglobin (g/dL)` column, aggregating values dynamically based on the visual's context.
 
-*   **`Categorize Average Hemoglobin`**
+   `Categorize Average Hemoglobin`
     ```DAX
     Categorize Average Hemoglobin =
     SWITCH(
@@ -159,15 +159,15 @@ Several Data Analysis Expressions (DAX) were created to enable the rich analytic
         "Unknown"
     )
     ```
-    **Purpose:** **Categorizes the overall average hemoglobin value** (calculated by `Avg Hemoglobin`) into "Low," "Normal," "High," or "Unknown." This is useful for displaying the general status in cards or tooltips.
+    Purpose: Categorizes the overall average hemoglobin value (calculated by `Avg Hemoglobin`) into "Low," "Normal," "High," or "Unknown." This is useful for displaying the general status in cards or tooltips.
 
-*   **`Target HB`**
+   `Target HB`
     ```DAX
     Target HB = 14
     ```
-    **Purpose:** Defines a **static target value for hemoglobin** as 14 g/dL, serving as a benchmark for comparison.
+    Purpose: Defines a static target value for hemoglobin as 14 g/dL, serving as a benchmark for comparison.
 
-*   **`Compare to Target Hemoglobin`**
+   `Compare to Target Hemoglobin`
     ```DAX
     Compare to Target Hemoglobin =
     IF(
@@ -178,28 +178,28 @@ Several Data Analysis Expressions (DAX) were created to enable the rich analytic
         )
     )
     ```
-    **Purpose:** Compares the `Avg Hemoglobin` with the `Target HB` to indicate whether the average is "Above Target," "Below Target," or "On Target".
+    Purpose: Compares the `Avg Hemoglobin` with the `Target HB` to indicate whether the average is "Above Target," "Below Target," or "On Target".
 
-*   **`Difference from Target HB`**
+   `Difference from Target HB`
     ```DAX
     Difference from Target HB = [Avg Hemoglobin] - [Target HB]
     ```
-    **Purpose:** Calculates the **numerical difference** between the average hemoglobin and the target hemoglobin, providing a quantifiable deviation.
+    Purpose: Calculates the numerical difference between the average hemoglobin and the target hemoglobin, providing a quantifiable deviation.
 
 ## Dataset
 
-The project utilizes a **Healthcare Analytics Dashboard dataset** containing patient blood test data.
+The project utilizes a Healthcare Analytics Dashboard dataset containing patient blood test data.
 
 ## Technologies Used
 
-*   **Power BI Desktop**: For data modeling, DAX formula creation, and dashboard visualization.
+   Power BI Desktop: For data modeling, DAX formula creation, and dashboard visualization.
 
 ## How to Use
 
-1.  **Clone this repository** to your local machine.
-2.  **Open the Power BI file (`.pbix`)** in Power BI Desktop.
-3.  **Explore the interactive dashboard** by utilizing the various filters and slicers provided for Gender, Age Group, Hemoglobin Range, and Glucose Range.
-4.  **Analyze key insights** presented through card visuals, charts, and tables to understand patient health status and identify areas of concern.
+1.  Clone this repository to your local machine.
+2.  Open the Power BI file (`.pbix`) in Power BI Desktop.
+3.  Explore the interactive dashboard by utilizing the various filters and slicers provided for Gender, Age Group, Hemoglobin Range, and Glucose Range.
+4.  Analyze key insights presented through card visuals, charts, and tables to understand patient health status and identify areas of concern.
 
 ---
 ```
