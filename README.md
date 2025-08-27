@@ -194,12 +194,7 @@ The project utilizes a Healthcare Analytics dataset attached to the repository c
 
    Power BI Desktop: For data modeling, DAX formula creation, and dashboard visualization.
 
-## How to Use
 
-1.  Clone this repository to your local machine.
-2.  Open the Power BI file (`.pbix`) in Power BI Desktop.
-3.  Explore the interactive dashboard by utilizing the various filters and slicers provided for Gender, Age Group, Hemoglobin Range, and Glucose Range.
-4.  Analyze key insights presented through card visuals, charts, and tables to understand patient health status and identify areas of concern.
 
 ---
 ```
